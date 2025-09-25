@@ -1,0 +1,22 @@
+@url = http://localhost:3000 
+
+###Crear un rectangulo
+POST {{url}}/resultado
+Content-Type: application/json
+
+{
+    "lado1": 15,
+    "lado2": 30
+}
+
+###Modificar un rectángulo 
+PUT {{url}}/resultado/3
+Content-Type: application/json
+
+{
+  "lado1": 10,
+  "lado2": 8
+}
+
+###Ver rectangulos
+GET {{url}}/calculo
