@@ -9,6 +9,15 @@ Content-Type: application/json
     "lado2": 30
 }
 
+###Crear un rectangulo
+POST {{url}}/resultado
+Content-Type: application/json
+
+{
+    "lado1": -15,
+    "lado2": 20
+}
+
 ###Modificar un rectángulo 
 PUT {{url}}/resultado/3
 Content-Type: application/json

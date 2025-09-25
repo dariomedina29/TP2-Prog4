@@ -5,8 +5,8 @@ import { body, param, validationResult } from "express-validator";
 const router = express.Router();
 
 const validarRectangulo = [
-  body("lado1", "alto inválido").isFloat({ gt: 0 }),
-  body("lado2", "ancho inválido").isFloat({ gt: 0 }),
+  body("lado1", "lado1 inválido").isFloat({ gt: 0 }),
+  body("lado2", "lado2 inválido").isFloat({ gt: 0 }),
 ];
 
 const validarId = [
