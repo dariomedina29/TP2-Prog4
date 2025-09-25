@@ -5,8 +5,8 @@ import { body, param, validationResult } from "express-validator";
 const router = express.Router();
 
 const validarRectangulo = [
-  body("lado1", "lado1 inválido").isFloat({ gt: 0 }),
-  body("lado2", "lado2 inválido").isFloat({ gt: 0 }),
+  body("lado1", "lado1 inválido").isInt({ gt: 0 }),
+  body("lado2", "lado2 inválido").isInt({ gt: 0 }),
 ];
 
 const validarId = [
@@ -18,7 +18,7 @@ const verificarValidaciones = (req, res, next) => {
     if(!validacion.isEmpty()){
         return res
         .status(400)
-        .json({sucess: false, message: "Falla de validacion", errores: validacion.array(),})
+        .json({success: false, message: "Falla de validacion", errores: validacion.array(),})
     }
     next();
 };
@@ -45,12 +45,6 @@ router.post("/resultado", validarRectangulo, verificarValidaciones, async(req,re
 
 });
 
-router.get("/calculo", async (req,res)=>{
-    const [rows] = await db.execute("SELECT id, lado1, lado2, perimetro, superficie FROM rectangulos");
-    
-    return res.json(rows);
-});
-
 router.put("/resultado/:id", [...validarId, ...validarRectangulo], verificarValidaciones, async (req, res) => {
     const id = Number(req.params.id);
     const {lado1, lado2} = req.body;
@@ -61,7 +55,7 @@ router.put("/resultado/:id", [...validarId, ...validarRectangulo], verificarVali
     if (exists.length === 0){
         return res
         .status(404)
-        .json({sucess: false, message: "Rectangulo no encontrado"});
+        .json({success: false, message: "Rectangulo no encontrado"});
     }
 
     const perimetro = 2 * (n1+n2);
