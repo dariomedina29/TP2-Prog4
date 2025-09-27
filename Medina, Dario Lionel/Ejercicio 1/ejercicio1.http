@@ -5,8 +5,8 @@ POST {{url}}/resultado
 Content-Type: application/json
 
 {
-    "lado1": 15,
-    "lado2": 30
+    "base": 15,
+    "altura": 30
 }
 
 ###Crear un rectangulo
@@ -14,8 +14,8 @@ POST {{url}}/resultado
 Content-Type: application/json
 
 {
-    "lado1": -15,
-    "lado2": 20
+    "base": -15,
+    "altura": 20
 }
 
 ###Modificar un rectángulo 
@@ -23,9 +23,12 @@ PUT {{url}}/resultado/3
 Content-Type: application/json
 
 {
-  "lado1": 10,
-  "lado2": 8
+  "base": 10,
+  "altura": 8
 }
+
+###Quitar un rectangulo por id
+DELETE {{url}}/resultado/1
 
 ###Ver rectangulos
 GET {{url}}/calculo
