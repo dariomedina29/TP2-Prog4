@@ -1,0 +1,45 @@
+@url = http://localhost:3000 
+
+###Ver tareas
+GET {{url}}/tareas
+
+### Tareas completadas 
+GET {{url}}/tareas?completada=true
+
+###Tareas no completadas
+GET  {{url}}/tareas?completada=false
+
+###Filtrar tarea por id
+GET {{url}}/tareas/1
+
+###Crear un tarea
+POST {{url}}/tareas
+Content-Type: application/json
+
+{
+    "nombre": "Lavar los platos",
+    "completada": true
+
+}
+
+###Crear un tarea sin completar
+POST {{url}}/tareas
+Content-Type: application/json
+
+{
+    "nombre": "Barrer",
+    "completada": false
+
+}
+
+###Actualizar una tarea
+PUT {{url}}/tareas/1
+Content-Type: application/json
+
+{
+    "nombre": "Sacar la basura",
+    "completada": true
+}
+
+###Quitar una tarea
+DELETE {{url}}/tareas/1
