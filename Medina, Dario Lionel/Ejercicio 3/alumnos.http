@@ -19,7 +19,7 @@ Content-Type: application/json
 }
 
 ###Actualizar alumno
-PUT {{url}}/1
+PUT {{url}}/alumnos/1
 Content-Type: application/json
 
 {
